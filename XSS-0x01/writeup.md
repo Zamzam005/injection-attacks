@@ -36,3 +36,24 @@ tcm-sec.com — proof of working XSS!
 
 ## Payloads Used
 ```html
+<img src=x onerror="prompt(1)">
+<img src=x onerror="window.location.href='https://tcm-sec.com'">
+```
+
+## Screenshots
+![Lab Page](screenshots/xss0x01-lab-page.png)
+![Img Onerror Payload](screenshots/xss0x01-img-onerror-payload.png)
+![Redirect Payload](screenshots/xss0x01-redirect-payload.png)
+![Redirect Success](screenshots/xss0x01-redirect-success.png)
+
+## Impact
+- Attacker can steal user cookies and session
+- Redirect users to phishing or malicious sites
+- Execute any JavaScript in victim's browser
+- Perform actions on behalf of the user
+
+## Fix
+- Sanitize and encode all user input
+- Use Content Security Policy (CSP) headers
+- HTML encode output before rendering
+- Validate input on both client and server side
